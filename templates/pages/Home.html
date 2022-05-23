@@ -47,28 +47,38 @@
 	</script>
 	<style>
 		#yourContainer {
-			width: auto;
-			height: 250px;
-		
+			width: 80%;
+			height: 100%;
+
 		}
 
 		#yourContainer img {
+			width: 300px;
+			height: 300px;
 			max-width: 100%;
 			max-height: 100%;
 			/* border-radius: 50%; */
 		}
+
 		#atten {
 
-border-radius: 50%;
+			border-radius: 50%;
 
-}
+		}
+
+		#logo-responsive {
+
+			border-radius: 50%;
+			height: 150px;
+			width: 600px;
+		}
 	</style>
 
 
 	<!-- //end-smooth-scrolling -->
 </head>
 
-<body style="background-color:#454749">
+<body style="background-color:#5f5b5b">
 	<script src="{% static '../../../../../../m.servedby-buysellads.com/monetization.js' %}"
 		type="text/javascript"></script>
 	<script>
@@ -283,8 +293,8 @@ RIGHT SIDEBAR TOGGLE SECTION
 		<div class="header" id="home1">
 			<div class="container">
 				<div class="w3l_login">
-					<a href="" data-toggle="modal" data-target="#myModal88"><span
-							class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+					<a href="" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user"
+							aria-hidden="true"></span></a>
 				</div>
 				<div class="w3l_logo">
 					<h1><a href="" style="color:#e55757">Electronic Store<span>Your stores. Your place.</span></a>
@@ -301,14 +311,14 @@ RIGHT SIDEBAR TOGGLE SECTION
 						</form>
 					</div>
 				</div>
-				<div class="cart cart box_1">
+				<!-- <div class="cart cart box_1">
 					<form action="#" method="post" class="last">
 						<input type="hidden" name="cmd" value="_cart" />
 						<input type="hidden" name="display" value="1" />
 						<button class="w3view-cart" type="submit" name="submit" value=""><i
 								class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
 					</form>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<!-- //header -->
@@ -328,24 +338,94 @@ RIGHT SIDEBAR TOGGLE SECTION
 					</div>
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
-							<li><a href="" class="act">Home</a></li>
+							<li><a href="http://127.0.0.1:8000/" class="act">Home</a></li>
+							<li><a href="/AllProducts" class="act">AllProducts</a></li>
 							<!-- Mega Menu -->
-							<li class="dropdown">
-								<a href="" class="dropdown-toggle" data-toggle="dropdown">Categories <b
-										class="caret"></b></a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown_4" >
+							<li class="dropdown" >
+
+								<button onclick="myFunction()" class="dropbtn" >CATEGORIES </button>
+								<div id="myDropdown" class="dropdown-content">
+								
 									{% for i in allcategory %}
-									<center style="background-color:#3c0a21;"><a class="dropdown-item" href="category/{{i.id}}"> {{i.name}}</a></center>
-									<center><h3><a href="category/{{i.id}}">
-										<img id="atten" src="{{ i.image.url}}" alt="" height="70" width="120">
-									</a></h3></center>
-								*****************************
+									<center style="background-color:#ffffff;"><a class="dropdown-item"
+											href="/category/{{i.id}}"> {{i.name}}</a></center>
+									<center>
+										<h3><a href="/category/{{i.id}}">
+												<img id="atten" src="{{ i.image.url}}" alt="" height="60" width="150">
+											</a></h3>
+									</center>
+								
 									{% endfor %}
 								</div>
+							</li>
 					</div>
 				</nav>
 			</div>
 		</div>
+		<style>
+			.dropbtn {
+			  background-color: #3b37a1;
+			  color: rgb(179, 59, 59);
+			  padding: 16px;
+			  font-size: 16px;
+			  border: none;
+			  cursor: pointer;
+			}
+			
+			.dropbtn:hover, .dropbtn:focus {
+			  background-color: #ffffff;
+			}
+			
+			.dropdown {
+			  position: relative;
+			  display: inline-block;
+			}
+			
+			.dropdown-content {
+			  display: none;
+			  position: static;
+			  background-color: #ffffff;
+			  min-width: 200px;
+			  overflow: auto;
+			  box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2);
+			  z-index: 1;
+			}
+			
+			.dropdown-content a {
+			  color: rgb(4, 4, 4);
+			  padding: 2px 20px;
+			  text-decoration: underline;
+			  display: flex;
+			}
+			
+			.dropdown a:hover {background-color: rgb(19, 177, 45);}
+			
+			.show {display: block;}
+			</style>
+		
+			<!--//style dropdown-->
+		<!--//script dropdown-->
+		<script>
+			/* When the user clicks on the button, 
+			toggle between hiding and showing the dropdown content */
+			function myFunction() {
+			  document.getElementById("myDropdown").classList.toggle("show");
+			}
+			
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+			  if (!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+				  var openDropdown = dropdowns[i];
+				  if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				  }
+				}
+			  }
+			}
+			</script>
 		<!-- //navigation -->
 		<!-- banner -->
 		<div class="banner">
@@ -1454,9 +1534,9 @@ RIGHT SIDEBAR TOGGLE SECTION
 		<!-- //special-deals -->
 		<!-- new-products -->
 
-		</script>
-		<h1 style="background-color:#000000">
-			<center style="color:#ffffff"> New Products Added </center>
+
+		<h1>
+			<center><img src="{% static 'images/new-products-100.jpg' %}" alt=" " id="logo-responsive" /> </center>
 		</h1>
 		<br>
 		<br>
@@ -1471,7 +1551,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 								<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_mobiles">
 									<div class="agile_ecommerce_tab_left mobiles_grid">
 										<div id="yourContainer">
-											<img src="{{i.image.url}}" alt=" " class="img-responsive">
+											<img src="{{i.image.url}}" alt=" " class="img-responsive" >
 										</div>
 										<div class="w3_hs_bottom w3_hs_bottom_sub1">
 											<ul>
@@ -1483,7 +1563,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 											</ul>
 
 										</div>
-										<h5><a href="single.html">{{i.name}}</a></h5>
+										<h5><a href="/product/{{i.id}}">{{i.name}}</a></h5>
 
 										<div class="mobiles_grid_pos">
 											<h6>${{i.price}}</h6>
@@ -1497,70 +1577,67 @@ RIGHT SIDEBAR TOGGLE SECTION
 				</div>
 			</div>
 		</div>
-		<div class="modal video-modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModal9">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<h1 style="background-color:#e39516">
+		<div class="modal video-modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModal9"  >
+			<div class="modal-dialog" role="document"  style="background-color:#000000">
+				<div class="modal-content"  style="background-color:#000000">
+					<h1 style="color:#d6f200">
 						<center> New Products Added </center>
-					</h1>					
+					</h1>
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-							aria-hidden="true">&times;</span></button>
-						</div>
-						{% for i in allproducts %}
-					<section>
-						<div class="modal-body">
-							
-							<div class="col-md-5 modal_body_left">
-								<img src="{{i.image.url}}" alt=" " class="img-responsive" />
+								aria-hidden="true">&times;</span></button>
+					</div>
+					{% for i in allproducts %}
+					<a href="/product/{{i.id}}">
+
+						<section>
+							<div class="modal-body">
+
+								<div class="col-md-5 modal_body_left">
+									<img src="{{i.image.url}}" alt=" " class="img-responsive" />
+								</div>
+								<div class="col-md-7 modal_body_right">
+									<h4>{{i.name}} </h4>
+									<p>
+									<h6 style="color:#ffffff">{{i.description}}</h6>
+									</p>
+									<div class="rating">
+										<div class="rating-left">
+											<img src="{%static 'images/star-.png' %}" alt=" " class="img-responsive" />
+										</div>
+										<div class="rating-left">
+											<img src="{%static 'images/star-.png' %}" alt=" " class="img-responsive" />
+										</div>
+										<div class="rating-left">
+											<img src="{%static 'images/star-.png' %}" alt=" " class="img-responsive" />
+										</div>
+										<div class="rating-left">
+											<img src="{%static 'images/star.png' %}" alt=" " class="img-responsive" />
+										</div>
+										<div class="rating-left">
+											<img src="{%static 'images/star.png' %}" alt=" " class="img-responsive" />
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+									<div class="simpleCart_shelfItem">
+										<p> <i class="item_price" style="color:#fef108">${{i.price}}</i></p>
+										<h5 style="color:rgb(87, 231, 89)"> Available Quantity ={{i.AvailableQuantity}}</h5>
+									</div>
+									<h5>Color</h5>
+									<div class="color-quality">
+										<ul>
+											<li><a href="#"><span></span></a></li>
+											<li><a href="#" class="brown"><span></span></a></li>
+											<li><a href="#" class="purple"><span></span></a></li>
+											<li><a href="#" class="gray"><span></span></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+
 							</div>
-							<div class="col-md-7 modal_body_right">
-								<h4>{{i.name}} </h4>
-								<p>
-								<h6>{{i.description}}</h6>
-								</p>
-								<div class="rating">
-									<div class="rating-left">
-										<img src="{%static 'images/star-.png' %}" alt=" " class="img-responsive" />
-									</div>
-									<div class="rating-left">
-										<img src="{%static 'images/star-.png' %}" alt=" " class="img-responsive" />
-									</div>
-									<div class="rating-left">
-										<img src="{%static 'images/star-.png' %}" alt=" " class="img-responsive" />
-									</div>
-									<div class="rating-left">
-										<img src="{%static 'images/star.png' %}" alt=" " class="img-responsive" />
-									</div>
-									<div class="rating-left">
-										<img src="{%static 'images/star.png' %}" alt=" " class="img-responsive" />
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="modal_body_right_cart simpleCart_shelfItem">
-									<p><span>$300.000</span> <i class="item_price">${{i.price}}</i></p>
-									<form action="#" method="post">
-										<input type="hidden" name="cmd" value="_cart" />
-										<input type="hidden" name="add" value="1" />
-										<input type="hidden" name="w3ls_item" value="Smart Phone" />
-										<input type="hidden" name="amount" value="245.00" />
-										<button type="submit" class="w3ls-cart">Add to cart</button>
-									</form>
-								</div>
-								<h5>Color</h5>
-								<div class="color-quality">
-									<ul>
-										<li><a href="#"><span></span></a></li>
-										<li><a href="#" class="brown"><span></span></a></li>
-										<li><a href="#" class="purple"><span></span></a></li>
-										<li><a href="#" class="gray"><span></span></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-							
-						</div>
-					</section>
+						</section>
+					</a>
 					{% endfor %}
 				</div>
 			</div>
@@ -1621,7 +1698,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 		</div>
 		<!-- //top-brands -->
 		<!-- newsletter -->
-		<div class="newsletter"  style="background-color:#000000">
+		<div class="newsletter" style="background-color:#000000">
 			<div class="container">
 				<div class="col-md-6 w3agile_newsletter_left">
 					<h3>Newsletter</h3>
